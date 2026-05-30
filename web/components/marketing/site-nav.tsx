@@ -25,13 +25,13 @@ export function SiteNav() {
         </div>
         <div className="ml-auto flex items-center gap-3.5">
           <a
-            href="#"
+            href="/login"
             className="text-sm font-semibold text-ink transition-colors hover:text-coral-lab"
           >
             Log in
           </a>
           <a
-            href="#"
+            href="/signup"
             className="inline-flex items-center gap-2 rounded-[10px] bg-coral px-4 py-2.5 text-sm font-semibold text-[#06222F] transition-colors hover:bg-coral-lab"
           >
             Get started

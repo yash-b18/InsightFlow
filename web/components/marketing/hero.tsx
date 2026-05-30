@@ -19,7 +19,7 @@ export function Hero() {
         </p>
         <div className="flex flex-wrap items-center gap-3.5">
           <a
-            href="#"
+            href="/signup"
             className="inline-flex items-center gap-2 rounded-[11px] bg-coral px-[22px] py-[13px] text-[15px] font-semibold text-[#06222F] transition-colors hover:bg-coral-lab"
           >
             Start for free
