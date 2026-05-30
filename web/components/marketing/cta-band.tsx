@@ -8,7 +8,7 @@ export function CtaBand() {
         Upload a file and get your first answer in under two minutes.
       </p>
       <a
-        href="#"
+        href="/signup"
         className="inline-flex items-center gap-2 rounded-[11px] bg-coral px-[22px] py-[13px] text-[15px] font-semibold text-[#06222F] transition-colors hover:bg-coral-lab"
       >
         Get started free
