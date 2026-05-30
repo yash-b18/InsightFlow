@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>InsightFlow · Ask workspace (final palette)</title>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sans:'Satoshi',-apple-system,sans-serif;--mono:'JetBrains Mono',monospace;
+  --side:#06273A;--top:#0A3346;--panel:#0C3A54;--panel2:#0E4361;--inset:#06222F;
+  --bd:rgba(255,255,255,.12);--bd2:rgba(255,255,255,.18);--hair:rgba(255,255,255,.07);
+  --ink:#EAF3F7;--sub:#A6C3D0;--mut:#7BA0B2;
+  --acc:#FB7A5C;--acc-lab:#FF8E72;--acc-dim:rgba(251,122,92,.28);--acc-soft:rgba(251,122,92,.13);--btn-fg:#06222F;
+  --shadow:0 18px 40px -14px rgba(0,0,0,.5),0 3px 10px -3px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--sans);color:var(--sub);font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased;letter-spacing:-.006em;
+  background:linear-gradient(162deg,#072B40 0%,#0C4A66 100%);background-attachment:fixed}
+.num{font-variant-numeric:tabular-nums}
+.icon{width:18px;height:18px;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.icon-sm{width:15px;height:15px;stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.app{display:grid;grid-template-columns:248px minmax(0,1fr) 322px;grid-template-rows:57px minmax(0,1fr);height:100vh;overflow:hidden}
+
+/* sidebar */
+.sidebar{grid-column:1;grid-row:1/3;background:var(--side);border-right:1px solid var(--bd);display:flex;flex-direction:column;padding:14px 12px}
+.brand{display:flex;align-items:center;gap:9px;padding:6px 8px 14px}
+.mark{width:27px;height:27px;border-radius:8px;background:#04161F;display:flex;align-items:center;justify-content:center;flex:none;border:1px solid var(--bd)}
+.brand b{color:var(--ink);font-weight:700;font-size:15px;letter-spacing:-.02em}
+.switcher{display:flex;align-items:center;gap:9px;justify-content:space-between;padding:8px 10px;border:1px solid var(--bd);background:rgba(255,255,255,.03);border-radius:9px;margin-bottom:14px;cursor:pointer}
+.switcher .s-l{display:flex;align-items:center;gap:9px;min-width:0}
+.switcher .dot{width:18px;height:18px;border-radius:5px;background:linear-gradient(140deg,#FB7A5C,#FFB59E);flex:none}
+.switcher .s-name{font-weight:600;color:var(--ink);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.switcher .s-sub{font-size:11px;color:var(--mut)}
+.nav{display:flex;flex-direction:column;gap:1px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;color:var(--sub);font-weight:500;font-size:13.5px;cursor:pointer}
+.nav-item:hover{background:rgba(255,255,255,.05);color:var(--ink)}
+.nav-item.active{background:var(--acc-soft);color:var(--acc-lab);font-weight:600}
+.nav-item.active .icon{stroke:var(--acc-lab)}
+.nav-item .kbd{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--mut);background:rgba(255,255,255,.05);border:1px solid var(--bd);border-radius:5px;padding:1px 5px}
+.sect{margin:16px 8px 7px;font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);display:flex;justify-content:space-between;align-items:center}
+.sect .add{cursor:pointer}.sect .add:hover{color:var(--acc-lab)}
+.ds{display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:8px;cursor:pointer;font-size:13px;color:var(--sub)}
+.ds:hover{background:rgba(255,255,255,.05)}
+.ds.active{color:var(--ink);font-weight:600}
+.ds .fi{width:15px;height:18px;border-radius:3px;border:1px solid var(--bd2);background:rgba(255,255,255,.04);font-family:var(--mono);font-size:6.5px;color:var(--mut);display:flex;align-items:flex-end;justify-content:center;padding-bottom:1px;flex:none}
+.ds.active .fi{border-color:var(--acc);color:var(--acc-lab)}
+.spacer{flex:1}
+.user{display:flex;align-items:center;gap:10px;padding:8px;border-top:1px solid var(--hair);margin-top:8px}
+.avatar{width:30px;height:30px;border-radius:8px;background:linear-gradient(140deg,#0A2E3F,#1A5570);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;flex:none}
+.user .u-n{font-size:13px;font-weight:600;color:var(--ink)}.user .u-p{font-size:11px;color:var(--mut)}
+.user .gear{margin-left:auto;color:var(--mut);cursor:pointer}.user .gear:hover{color:var(--ink)}
+
+/* topbar */
+.topbar{grid-column:2/4;grid-row:1;background:var(--top);border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:14px;padding:0 20px}
+.crumb{display:flex;align-items:center;gap:8px;font-size:13.5px}
+.crumb .c1{color:var(--sub)}.crumb .sep{color:var(--mut)}.crumb .c2{color:var(--ink);font-weight:600}.crumb .star{color:var(--mut);cursor:pointer}
+.search{margin-left:8px;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.05);border:1px solid var(--bd);border-radius:8px;padding:6px 9px;width:248px;color:var(--mut);cursor:text}
+.search .kbd{margin-left:auto;font-family:var(--mono);font-size:10.5px;background:rgba(255,255,255,.05);border:1px solid var(--bd);border-radius:5px;padding:1px 5px}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.btn{font-family:var(--sans);font-weight:600;font-size:13px;border-radius:8px;padding:7px 13px;cursor:pointer;border:1px solid transparent;display:inline-flex;align-items:center;gap:7px;letter-spacing:-.01em}
+.btn-acc{background:var(--acc);color:var(--btn-fg)}.btn-acc:hover{background:#ff8a6f}
+.btn-ghost{background:rgba(255,255,255,.04);color:var(--ink);border-color:var(--bd)}.btn-ghost:hover{background:rgba(255,255,255,.08)}
+.btn-quiet{background:transparent;color:var(--sub);padding:7px 9px}.btn-quiet:hover{background:rgba(255,255,255,.06);color:var(--ink)}
+
+/* main */
+.main{grid-column:2;grid-row:2;display:flex;flex-direction:column;min-height:0}
+.thread{flex:1;overflow:auto;padding:26px 0 8px}
+.wrap{max-width:752px;margin:0 auto;padding:0 28px}
+.ds-head{display:flex;align-items:center;gap:11px;margin-bottom:22px}
+.ds-head .big-fi{width:34px;height:40px;border-radius:6px;border:1px solid var(--bd2);background:var(--panel);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:3px}
+.ds-head .big-fi span{font-family:var(--mono);font-size:7px;font-weight:600;color:var(--acc-lab)}
+.ds-head h1{font-size:16px;color:var(--ink);font-weight:700;letter-spacing:-.02em}
+.ds-head .meta{font-size:12.5px;color:var(--mut)}
+.ds-head .ok{display:inline-flex;align-items:center;gap:5px;color:#54D6A0;font-weight:600}
+.ds-head .ok .pdot{width:6px;height:6px;border-radius:50%;background:#54D6A0}
+
+.past{display:flex;align-items:center;gap:10px;padding:11px 14px;border:1px solid var(--bd);background:var(--panel);border-radius:10px;margin-bottom:14px;cursor:pointer}
+.past .q{font-size:13px;color:var(--sub);font-weight:500}
+.past .a{margin-left:auto;font-size:13px;color:var(--ink);font-weight:700}
+.past .chev{color:var(--mut)}
+
+.qrow{display:flex;align-items:flex-start;gap:11px;margin:22px 0 16px}
+.qrow .ua{width:27px;height:27px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--ink);flex:none}
+.qrow .qt{font-size:19px;line-height:1.4;color:var(--ink);font-weight:700;letter-spacing:-.022em;padding-top:1px}
+
+.answer{border:1px solid var(--bd);background:var(--panel);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+.a-head{display:flex;align-items:center;gap:9px;padding:13px 18px;border-bottom:1px solid var(--hair)}
+.a-mark{width:24px;height:24px;border-radius:7px;background:var(--acc);display:flex;align-items:center;justify-content:center;flex:none}
+.a-head .who{font-size:12.5px;font-weight:700;color:var(--ink)}
+.a-head .mdl{font-family:var(--mono);font-size:11px;color:var(--mut);background:rgba(255,255,255,.05);border:1px solid var(--bd);border-radius:5px;padding:1px 6px}
+.a-head .took{margin-left:auto;font-size:11.5px;color:var(--mut)}
+.a-body{padding:18px}
+.a-text{font-size:14.5px;line-height:1.62;color:var(--sub)}
+.a-text b{color:var(--ink);font-weight:700}.a-text .hl{color:var(--acc-lab);font-weight:700}
+
+.viz{margin:18px 0 6px;border:1px solid var(--bd);border-radius:11px;overflow:hidden}
+.viz-bar{display:flex;align-items:center;gap:9px;padding:9px 13px;border-bottom:1px solid var(--hair);background:var(--panel2)}
+.viz-bar .vt{font-size:12px;font-weight:700;color:var(--ink)}
+.viz-bar .tabs{margin-left:auto;display:flex;gap:2px;background:rgba(255,255,255,.04);border:1px solid var(--bd);border-radius:7px;padding:2px}
+.viz-bar .tab{font-size:11.5px;font-weight:600;color:var(--mut);padding:3px 9px;border-radius:5px;cursor:pointer;display:flex;align-items:center;gap:5px}
+.viz-bar .tab.on{background:var(--acc-soft);color:var(--acc-lab)}
+.chart{padding:14px 14px 8px}
+.gl line{stroke:rgba(255,255,255,.08)}.ax text{fill:var(--mut)}.bm{fill:var(--acc)}.bd{fill:var(--acc-dim)}.lm{fill:var(--acc-lab)}.ll{fill:var(--sub)}.xl text{fill:var(--sub)}
+
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{text-align:left;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);padding:9px 14px;border-bottom:1px solid var(--bd);background:var(--panel2)}
+.tbl td{padding:9px 14px;border-bottom:1px solid var(--hair);color:var(--sub)}
+.tbl td.r,.tbl th.r{text-align:right;font-variant-numeric:tabular-nums}
+.tbl td.reg{color:var(--ink);font-weight:600}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr.tot td{background:var(--panel2);font-weight:700;color:var(--ink);border-top:1px solid var(--bd)}
+.delta{display:inline-flex;align-items:center;gap:3px;color:var(--acc-lab);font-weight:600;justify-content:flex-end}
+.delta .icon-sm{width:13px;height:13px;stroke-width:2}
+
+.sql{margin-top:16px;border:1px solid var(--bd);border-radius:11px;overflow:hidden}
+.sql-bar{display:flex;align-items:center;gap:9px;padding:9px 13px;background:#05202C;border-bottom:1px solid var(--bd)}
+.sql-bar .dotrow{display:flex;gap:6px}.sql-bar .d{width:9px;height:9px;border-radius:50%}
+.sql-bar .lbl{font-family:var(--mono);font-size:11px;color:var(--mut);margin-left:4px}
+.sql-bar .cp{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--sub);font-weight:600;cursor:pointer;border:1px solid var(--bd);padding:4px 9px;border-radius:6px}
+.sql-bar .cp:hover{background:rgba(255,255,255,.06);color:var(--ink)}
+.sql-code{background:var(--inset);color:#C8DCE4;font-family:var(--mono);font-size:12.5px;line-height:1.7;padding:14px 16px;overflow:auto;white-space:pre}
+.sql-code .kw{color:#FF9E86}.sql-code .fn{color:#6FD3C6}.sql-code .st{color:#E2B07A}.sql-code .nm{color:#E58AA0}.sql-code .cm{color:#5E7C8B}
+
+.a-foot{display:flex;align-items:center;gap:6px;padding:11px 18px;border-top:1px solid var(--hair)}
+.chiplet{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--ink);border:1px solid var(--bd);background:rgba(255,255,255,.04);border-radius:7px;padding:6px 11px;cursor:pointer}
+.chiplet:hover{background:rgba(255,255,255,.08)}
+.chiplet.primary{background:var(--acc);color:var(--btn-fg);border-color:var(--acc)}.chiplet.primary:hover{background:#ff8a6f}
+.a-foot .fb{margin-left:auto;display:flex;gap:2px}
+.a-foot .fb .ic{padding:6px;border-radius:7px;color:var(--mut);cursor:pointer}.a-foot .fb .ic:hover{background:rgba(255,255,255,.06);color:var(--ink)}
+
+/* composer */
+.composer-wrap{padding:14px 28px 20px;background:linear-gradient(to top,#0a4460 60%,rgba(12,74,102,0))}
+.composer-inner{max-width:752px;margin:0 auto}
+.suggest{display:flex;gap:8px;margin-bottom:11px;flex-wrap:wrap}
+.sug{font-size:12.5px;font-weight:500;color:var(--sub);background:rgba(255,255,255,.04);border:1px solid var(--bd);border-radius:999px;padding:6px 13px;cursor:pointer;display:flex;align-items:center;gap:7px}
+.sug:hover{border-color:var(--acc);color:var(--acc-lab)}
+.sug .icon-sm{width:13px;height:13px;color:var(--mut)}
+.composer{background:var(--panel);border:1px solid var(--bd2);border-radius:14px;box-shadow:var(--shadow);padding:13px 14px 11px}
+.composer:focus-within{border-color:var(--acc);box-shadow:0 0 0 4px var(--acc-soft),var(--shadow)}
+.composer .field{display:flex;align-items:center;gap:11px}
+.composer .ds-chip{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--ink);background:rgba(255,255,255,.05);border:1px solid var(--bd);border-radius:8px;padding:5px 9px;flex:none}
+.composer .ds-chip .fi{width:11px;height:13px;border-radius:2px;border:1px solid var(--acc);color:var(--acc-lab);font-family:var(--mono);font-size:5px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:1px}
+.composer input{flex:1;border:none;outline:none;font-family:var(--sans);font-size:15px;color:var(--ink);background:transparent;letter-spacing:-.01em}
+.composer input::placeholder{color:var(--mut)}
+.composer .send{width:34px;height:34px;border-radius:9px;background:var(--acc);color:var(--btn-fg);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none}
+.composer .send:hover{background:#ff8a6f}
+.composer .crow{display:flex;align-items:center;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid var(--hair)}
+.guard{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--mut)}
+.guard .icon-sm{width:13px;height:13px;color:#54D6A0}
+.composer .crow .ent{margin-left:auto;font-size:11.5px;color:var(--mut)}
+.composer .crow .ent b{font-family:var(--mono);background:rgba(255,255,255,.05);border:1px solid var(--bd);border-radius:4px;padding:0 5px;color:var(--sub);font-weight:500}
+
+/* rail */
+.rail{grid-column:3;grid-row:2;background:var(--side);border-left:1px solid var(--bd);overflow:auto;padding:18px 16px}
+.rail h3{font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-bottom:12px}
+.rail-card{border:1px solid var(--bd);background:var(--panel);border-radius:11px;padding:14px;margin-bottom:14px}
+.rail-file{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.rail-file .fi{width:30px;height:36px;border-radius:5px;border:1px solid var(--bd2);background:var(--panel2);display:flex;align-items:flex-end;justify-content:center;padding-bottom:3px;flex:none}
+.rail-file .fi span{font-family:var(--mono);font-size:6.5px;font-weight:600;color:var(--acc-lab)}
+.rail-file .rf-n{font-size:13.5px;font-weight:700;color:var(--ink)}
+.rail-file .rf-m{font-size:11.5px;color:var(--mut)}
+.stat-row{display:flex;gap:8px;margin-bottom:14px}
+.stat-box{flex:1;background:rgba(255,255,255,.03);border:1px solid var(--hair);border-radius:9px;padding:9px 10px}
+.stat-box .sv{font-size:16px;font-weight:700;color:var(--ink)}
+.stat-box .sl{font-size:10.5px;color:var(--mut);font-weight:500}
+.col-list{display:flex;flex-direction:column}
+.col{display:flex;align-items:center;gap:9px;padding:7px 2px;border-bottom:1px solid var(--hair)}
+.col:last-child{border-bottom:none}
+.col .ct{width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;font-weight:600;flex:none;background:rgba(255,255,255,.06);color:var(--sub)}
+.col .cn{font-size:13px;font-weight:600;color:var(--ink);font-family:var(--mono);letter-spacing:-.02em}
+.col .cmeta{margin-left:auto;font-size:11px;color:var(--mut);text-align:right;font-variant-numeric:tabular-nums}
+.col .nullbadge{color:var(--acc-lab);font-weight:600}
+.rail-link{display:flex;align-items:center;justify-content:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--acc-lab);padding:9px;border:1px solid var(--bd);border-radius:9px;cursor:pointer}
+.rail-link:hover{background:var(--acc-soft)}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="mark"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 15.5L9 10l3.5 3.5L20 6" stroke="#FB7A5C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="6" r="2.4" fill="#FFB59E"/></svg></div><b>InsightFlow</b></div>
+    <div class="switcher"><div class="s-l"><div class="dot"></div><div style="min-width:0"><div class="s-name">Q3 Sales Analysis</div><div class="s-sub">Project</div></div></div><svg class="icon-sm" style="color:var(--mut)" viewBox="0 0 24 24"><path d="M8 9l4 4 4-4"/></svg></div>
+    <nav class="nav">
+      <div class="nav-item active"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.4L12 15l-1.9-4.6L5.5 9l4.6-1.4z"/></svg> Ask <span class="kbd">A</span></div>
+      <div class="nav-item"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg> Datasets</div>
+      <div class="nav-item"><svg class="icon" viewBox="0 0 24 24"><path d="M3 7a2 2 0 012-2h3.5l2 2H19a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> Projects</div>
+      <div class="nav-item"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 1.8"/></svg> History</div>
+    </nav>
+    <div class="sect">Datasets <svg class="icon-sm add" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
+    <div class="ds active"><div class="fi">CSV</div> q3_sales.csv</div>
+    <div class="ds"><div class="fi">XLS</div> customers.xlsx</div>
+    <div class="ds"><div class="fi">CSV</div> ad_spend.csv</div>
+    <div class="spacer"></div>
+    <div class="user"><div class="avatar">YB</div><div><div class="u-n">Yash B.</div><div class="u-p">Pro workspace</div></div><svg class="icon-sm gear" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></div>
+  </aside>
+
+  <header class="topbar">
+    <div class="crumb"><span class="c1">Q3 Sales Analysis</span><span class="sep">/</span><span class="c2">Ask</span><svg class="icon-sm star" viewBox="0 0 24 24"><path d="M12 4l2.3 4.7 5.2.8-3.8 3.7.9 5.1L12 16.6 7.4 18l.9-5.1L4.5 9.5l5.2-.8z"/></svg></div>
+    <div class="search"><svg class="icon-sm" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg> Search datasets, insights… <span class="kbd">⌘K</span></div>
+    <div class="tb-right">
+      <button class="btn btn-quiet"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7"/><path d="M16 6l-4-4-4 4M12 2v13"/></svg> Export</button>
+      <button class="btn btn-ghost"><svg class="icon-sm" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-4M8.6 13.4l6.8 4"/></svg> Share</button>
+      <button class="btn btn-acc"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg> New analysis</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="thread"><div class="wrap">
+      <div class="ds-head">
+        <div class="big-fi"><span>CSV</span></div>
+        <div style="flex:1"><h1>q3_sales.csv</h1><div class="meta"><span class="num">1,284</span> rows · <span class="num">9</span> columns · <span class="ok"><span class="pdot"></span>Profiled</span> · 2 questions</div></div>
+      </div>
+
+      <div class="past"><svg class="icon-sm" style="color:var(--mut)" viewBox="0 0 24 24"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.4L12 15l-1.9-4.6L5.5 9l4.6-1.4z"/></svg><span class="q">What was total Q3 revenue?</span><span class="a num">$5.17M</span><svg class="icon-sm chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></div>
+
+      <div class="qrow"><div class="ua">YB</div><div class="qt">Which regions grew fastest last quarter?</div></div>
+
+      <div class="answer">
+        <div class="a-head"><div class="a-mark"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.4L12 15l-1.9-4.6L5.5 9l4.6-1.4z" fill="#06222F"/></svg></div><span class="who">InsightFlow</span><span class="mdl">Claude Sonnet 4.6</span><span class="took">answered in 2.4s</span></div>
+        <div class="a-body">
+          <p class="a-text"><b>APAC</b> grew fastest last quarter at <span class="hl">+38.2%</span> QoQ — roughly <b>1.4×</b> EMEA's rate — adding <b>$612K</b> in revenue. Every region grew, but APAC and EMEA together drove <b>78%</b> of net-new revenue. US (<b>+22.1%</b>) and LATAM (<b>+15.0%</b>) trailed the field.</p>
+
+          <div class="viz">
+            <div class="viz-bar"><span class="vt">QoQ revenue growth by region</span><div class="tabs"><span class="tab on"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg> Bar</span><span class="tab">Table</span></div></div>
+            <div class="chart"><svg viewBox="0 0 520 200" width="100%" font-family="JetBrains Mono">
+              <g class="gl"><line x1="38" y1="172" x2="508" y2="172"/><line x1="38" y1="133.5" x2="508" y2="133.5"/><line x1="38" y1="95" x2="508" y2="95"/><line x1="38" y1="56.5" x2="508" y2="56.5"/><line x1="38" y1="18" x2="508" y2="18"/></g>
+              <g class="ax" font-size="10" text-anchor="end"><text x="30" y="175">0%</text><text x="30" y="136.5">10</text><text x="30" y="98">20</text><text x="30" y="59.5">30</text><text x="30" y="21">40</text></g>
+              <rect class="bm" x="73.75" y="24.9" width="46" height="147.1" rx="3"/><rect class="bd" x="191.25" y="66.5" width="46" height="105.5" rx="3"/><rect class="bd" x="308.75" y="86.9" width="46" height="85.1" rx="3"/><rect class="bd" x="426.25" y="114.25" width="46" height="57.75" rx="3"/>
+              <g font-size="11" text-anchor="middle" font-weight="600"><text class="lm" x="96.75" y="18">38.2%</text><text class="ll" x="214.25" y="59">27.4%</text><text class="ll" x="331.75" y="79">22.1%</text><text class="ll" x="449.25" y="107">15.0%</text></g>
+              <g class="xl" font-size="11" text-anchor="middle" font-family="Satoshi"><text x="96.75" y="190">APAC</text><text x="214.25" y="190">EMEA</text><text x="331.75" y="190">US</text><text x="449.25" y="190">LATAM</text></g>
+            </svg></div>
+            <table class="tbl">
+              <thead><tr><th>Region</th><th class="r">Q2 revenue</th><th class="r">Q3 revenue</th><th class="r">Growth</th></tr></thead>
+              <tbody>
+                <tr><td class="reg">APAC</td><td class="r num">$1.60M</td><td class="r num">$2.21M</td><td class="r"><span class="delta">+38.2%<svg class="icon-sm" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></td></tr>
+                <tr><td class="reg">EMEA</td><td class="r num">$1.12M</td><td class="r num">$1.43M</td><td class="r"><span class="delta">+27.4%<svg class="icon-sm" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></td></tr>
+                <tr><td class="reg">US</td><td class="r num">$0.95M</td><td class="r num">$1.16M</td><td class="r"><span class="delta">+22.1%<svg class="icon-sm" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></td></tr>
+                <tr><td class="reg">LATAM</td><td class="r num">$0.32M</td><td class="r num">$0.37M</td><td class="r"><span class="delta">+15.0%<svg class="icon-sm" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></td></tr>
+                <tr class="tot"><td>Total</td><td class="r num">$3.99M</td><td class="r num">$5.17M</td><td class="r"><span class="delta">+29.6%<svg class="icon-sm" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="sql">
+            <div class="sql-bar"><div class="dotrow"><span class="d" style="background:#FF5F57"></span><span class="d" style="background:#FEBC2E"></span><span class="d" style="background:#28C840"></span></div><span class="lbl">generated_query.sql</span><span class="cp"><svg class="icon-sm" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 012-2h8"/></svg> Copy</span></div>
+<pre class="sql-code"><span class="cm">-- only SELECT · validated · run on read-only role</span>
+<span class="kw">SELECT</span> region,
+       <span class="fn">SUM</span>(revenue) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> quarter = <span class="st">'Q2'</span>) <span class="kw">AS</span> q2_revenue,
+       <span class="fn">SUM</span>(revenue) <span class="kw">FILTER</span> (<span class="kw">WHERE</span> quarter = <span class="st">'Q3'</span>) <span class="kw">AS</span> q3_revenue,
+       <span class="fn">ROUND</span>(<span class="nm">100.0</span> * (q3_revenue - q2_revenue)
+             / <span class="fn">NULLIF</span>(q2_revenue, <span class="nm">0</span>), <span class="nm">1</span>) <span class="kw">AS</span> growth_pct
+<span class="kw">FROM</span> q3_sales
+<span class="kw">GROUP BY</span> region
+<span class="kw">ORDER BY</span> growth_pct <span class="kw">DESC</span>;</pre>
+          </div>
+        </div>
+        <div class="a-foot">
+          <span class="chiplet primary"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M5 4h14a1 1 0 011 1v15l-8-4-8 4V5a1 1 0 011-1z"/></svg> Save insight</span>
+          <span class="chiplet"><svg class="icon-sm" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg> Add to dashboard</span>
+          <span class="chiplet"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7"/><path d="M16 6l-4-4-4 4M12 2v13"/></svg> Export</span>
+          <span class="fb"><span class="ic"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M7 11v9M14 4l-2 7h6.5a2 2 0 012 2.3l-1 6A2 2 0 0117.5 21H7V11l3-7z"/></svg></span><span class="ic"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M17 13V4M10 20l2-7H5.5a2 2 0 01-2-2.3l1-6A2 2 0 016.5 3H17v10l-3 7z"/></svg></span></span>
+        </div>
+      </div>
+    </div></div>
+
+    <div class="composer-wrap"><div class="composer-inner">
+      <div class="suggest">
+        <span class="sug"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M3 17l5-5 4 3 8-8"/></svg> Month-over-month revenue trend</span>
+        <span class="sug"><svg class="icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0116 0"/></svg> Top 10 customers by revenue</span>
+        <span class="sug"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M3 18L12 4l9 14z"/></svg> Where are the null values?</span>
+      </div>
+      <div class="composer">
+        <div class="field"><span class="ds-chip"><span class="fi">C</span> q3_sales</span><input placeholder="Ask anything about this dataset…"><div class="send"><svg class="icon" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></div></div>
+        <div class="crow"><span class="guard"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg> Grounded in your data — off-topic questions are declined</span><span class="ent">Claude Sonnet 4.6 &nbsp;·&nbsp; <b>⏎</b> to ask</span></div>
+      </div>
+    </div></div>
+  </main>
+
+  <aside class="rail">
+    <h3>Dataset context</h3>
+    <div class="rail-card">
+      <div class="rail-file"><div class="fi"><span>CSV</span></div><div><div class="rf-n">q3_sales.csv</div><div class="rf-m">Uploaded 2 days ago · 248 KB</div></div></div>
+      <div class="stat-row"><div class="stat-box"><div class="sv num">1,284</div><div class="sl">Rows</div></div><div class="stat-box"><div class="sv num">9</div><div class="sl">Columns</div></div><div class="stat-box"><div class="sv num">1.4%</div><div class="sl">Null cells</div></div></div>
+      <div class="col-list">
+        <div class="col"><span class="ct">#</span><span class="cn">order_id</span><span class="cmeta">1,284 unique</span></div>
+        <div class="col"><span class="ct">▦</span><span class="cn">order_date</span><span class="cmeta">Jan–Mar 2024</span></div>
+        <div class="col"><span class="ct">A</span><span class="cn">region</span><span class="cmeta">4 values</span></div>
+        <div class="col"><span class="ct">A</span><span class="cn">product</span><span class="cmeta">18 values</span></div>
+        <div class="col"><span class="ct">A</span><span class="cn">channel</span><span class="cmeta"><span class="nullbadge">4% null</span></span></div>
+        <div class="col"><span class="ct">#</span><span class="cn">quantity</span><span class="cmeta">1 – 340</span></div>
+        <div class="col"><span class="ct">#</span><span class="cn">unit_price</span><span class="cmeta">$4 – $1,920</span></div>
+        <div class="col"><span class="ct">#</span><span class="cn">revenue</span><span class="cmeta">$4 – $2.41M</span></div>
+        <div class="col"><span class="ct">A</span><span class="cn">quarter</span><span class="cmeta">Q2, Q3</span></div>
+      </div>
+    </div>
+    <div class="rail-link"><svg class="icon-sm" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg> View full profile</div>
+  </aside>
+</div>
+</body>
+</html>

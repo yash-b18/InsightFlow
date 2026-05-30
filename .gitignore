@@ -1,0 +1,31 @@
+# secrets / env
+.env
+.env.*
+!.env.example
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# node / next
+node_modules/
+.next/
+out/
+next-env.d.ts
+
+# build
+dist/
+build/
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+
+# agent + local working artifacts (never commit)
+.claude/
+.superpowers/
+docs/plans/
+BUILD_NOTES.local.md
