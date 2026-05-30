@@ -27,5 +27,6 @@ build/
 # agent + local working artifacts (never commit)
 .claude/
 .superpowers/
+CLAUDE.md
 docs/plans/
 BUILD_NOTES.local.md
