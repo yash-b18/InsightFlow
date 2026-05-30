@@ -1,0 +1,20 @@
+:root {
+  --ocean-1: #072B40;
+  --ocean-2: #0C4A66;
+  --side: #06273A;
+  --top: #0A3346;
+  --panel: #0C3A54;
+  --panel-2: #0E4361;
+  --inset: #06222F;
+  --border: rgba(255, 255, 255, 0.12);
+  --hair: rgba(255, 255, 255, 0.07);
+  --coral: #FB7A5C;
+  --coral-lab: #FF8E72;
+  --coral-dim: rgba(251, 122, 92, 0.28);
+  --coral-soft: rgba(251, 122, 92, 0.13);
+  --on-coral: #06222F;
+  --ink: #EAF3F7;
+  --sub: #A6C3D0;
+  --mut: #7BA0B2;
+  --success: #54D6A0;
+}
